@@ -8,8 +8,6 @@ import isEqual from 'react-fast-compare'
 export default class DagreD3 extends Component {
     constructor(props) {
         super(props);
-
-        console.log("hello")
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -35,8 +33,11 @@ export default class DagreD3 extends Component {
         for (let [id, node] of Object.entries(this.props.nodes))
             g.setNode(id, node);
 
-        for (let edge of this.props.edges)
+        for (let edge of this.props.edges){
+            if(edge[2].curve && edge[2].curve == 'd3.curveBasis')
+                edge[2].curve = d3.curveBasis
             g.setEdge(edge[0], edge[1], edge[2]); // from, to, props
+        }
 
         // Set up an SVG group so that we can translate the final graph.
         let svg = d3.select(this.nodeTree);

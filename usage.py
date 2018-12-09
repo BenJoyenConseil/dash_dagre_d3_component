@@ -45,14 +45,14 @@ app.layout = html.Div(id='svg_container', children=[
                 }
         ,
         edges=[
-                    ['1', '2', {}],
-                    ['1', '3', {}],
-                    ['2', '4', {}],
-                    ['2', '3', {}],
-                    ['1', '4', {}],
-                    ['5', '4', {}],
-                    ['6', '4', {}],
-                    ['3', '4', {}]
+                    ['1', '2', {'curve': 'd3.curveBasis'}],
+                    ['1', '3', {'curve': 'd3.curveBasis'}],
+                    ['2', '4', {'curve': 'd3.curveBasis'}],
+                    ['2', '3', {'curve': 'd3.curveBasis'}],
+                    ['1', '4', {'curve': 'd3.curveBasis'}],
+                    ['5', '4', {'curve': 'd3.curveBasis'}],
+                    ['6', '4', {'curve': 'd3.curveBasis'}],
+                    ['3', '4', {'curve': 'd3.curveBasis'}]
         ],
         width=''
     ),
