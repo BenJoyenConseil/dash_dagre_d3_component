@@ -11,8 +11,8 @@ export default class DagreD3 extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return !isEqual(this.props.nodes, nextProps.nodes) ||
-            !isEqual(this.props.edges, nextProps.edges) ||
+        return !isEqual(this.props.data.nodes, nextProps.data.nodes) ||
+            !isEqual(this.props.data.edges, nextProps.data.edges) ||
             !isEqual(this.props.zoom, nextProps.zoom)
     }
 
@@ -29,11 +29,10 @@ export default class DagreD3 extends Component {
 
         let g = new dagreD3.graphlib.Graph().setGraph({});
 
-
-        for (let [id, node] of Object.entries(this.props.nodes))
+        for (let [id, node] of Object.entries(this.props.data.nodes))
             g.setNode(id, node);
 
-        for (let edge of this.props.edges){
+        for (let edge of this.props.data.edges){
             if(edge[2].curve && edge[2].curve == 'd3.curveBasis')
                 edge[2].curve = d3.curveBasis
             g.setEdge(edge[0], edge[1], edge[2]); // from, to, props
@@ -75,8 +74,8 @@ export default class DagreD3 extends Component {
 
         svg.selectAll('.dagre-d3 .node').on('click',
                 id => {
-                    console.log(id)
                     setProps({selectedId: id})
+                    setProps({selectedNodeProps: this.props.data.nodes[id]})
                 });
     }
 
@@ -98,7 +97,11 @@ DagreD3.defaultProps = {
     width: "1",
     // width and height are defaulted to 1 due to a FireFox bug(?) If set to 0, it complains.
     fit: true,
-    interactive: true
+    interactive: true,
+    data: {
+        'nodes': {},
+        'edges': []
+    }
 };
 
 DagreD3.propTypes = {
@@ -111,9 +114,14 @@ DagreD3.propTypes = {
      * properties change
      */
     setProps: PropTypes.func,
+    /*
+    data: {
+        'nodes': {},
+        'edges': []
+    }
+    */
+    data: PropTypes.object.isRequired,
 
-    nodes: PropTypes.object.isRequired,
-    edges: PropTypes.array.isRequired,
     interactive: PropTypes.bool,
     fit: PropTypes.bool,
     height: PropTypes.string,
@@ -121,4 +129,5 @@ DagreD3.propTypes = {
     shapeRenderers: PropTypes.objectOf(PropTypes.func),
     onNodeClick: PropTypes.func,
     selectedId: PropTypes.string,
+    selectedNodeProps: PropTypes.object,
 };
