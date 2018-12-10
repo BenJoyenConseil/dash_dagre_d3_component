@@ -41,7 +41,9 @@ _js_dist = [
 
 _css_dist = [
     {
-        'relative_package_path': 'style.css',
+        'relative_package_path': 'dash_dagre_style.css',
+        'external_url': 'https://unpkg.com/{0}@{2}/{1}/dash_dagre_style.css'.format(
+            package_name, __name__, __version__),
         'namespace': package_name
     },
 ]
