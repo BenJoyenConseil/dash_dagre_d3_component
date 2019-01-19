@@ -11,51 +11,50 @@ app.css.config.serve_locally = True
 app.layout = html.Div(id='svg_container', children=[
     DagreD3(
         id="dag",
-        data=dict(
-            nodes={
-                        '1': {
-                            'label': 'Node 1',
-                            'specific_property': 'some specificities',
-                            'rx': 10,
-                            'ry': 10,
-                        },
-                        '2': {
-                            'label': 'Node 2',
-                            'rx': 5,
-                            'ry': 5,
-                        },
-                        '3': {
-                            'label': 'Node 3',
-                            'rx': 5,
-                            'ry': 5,
-                        },
-                        '4': {
-                            'label': 'Node 4',
-                            'rx': 5,
-                            'ry': 5,
-                        },
-                        '5': {
-                            'label': 'Node 5',
-                            'rx': 5,
-                            'ry': 5,
-                        },
-                        '6': {
-                            'label': 'Node 6',
-                            'rx': 5,
-                            'ry': 5,
-                        }
-                    }
-            ,
-            edges=[
-                        ['1', '2', {'curve': 'd3.curveBasis'}],
-                        ['1', '3', {'curve': 'd3.curveBasis'}],
-                        ['2', '4', {'curve': 'd3.curveBasis'}],
-                        ['2', '3', {'curve': 'd3.curveBasis'}],
-                        ['1', '4', {'curve': 'd3.curveBasis'}],
-                        ['5', '4', {'curve': 'd3.curveBasis'}],
-                        ['6', '4', {'curve': 'd3.curveBasis'}],
-                        ['3', '4', {'curve': 'd3.curveBasis'}]
-            ])
+        nodes={
+            '1': {
+                'label': 'Node 1',
+                'specific_property': 'some specificities',
+                'rx': 10,
+                'ry': 10,
+            },
+            '2': {
+                'label': 'Node 2',
+                'rx': 5,
+                'ry': 5,
+            },
+            '3': {
+                'label': 'Node3',
+                'rx': 5,
+                'ry': 5,
+            },
+            '4': {
+                'label': 'Node 4',
+                'rx': 5,
+                'ry': 5,
+            },
+            '5': {
+                'label': 'Node 5',
+                'rx': 5,
+                'ry': 5,
+            },
+            '6': {
+                'label': 'Node 6',
+                'rx': 5,
+                'ry': 5,
+            }
+        }
+        ,
+        edges=[
+            ['1', '2', {'curve': 'd3.curveBasis'}],
+            ['1', '3', {'curve': 'd3.curveBasis'}],
+            ['2', '4', {'curve': 'd3.curveBasis'}],
+            ['2', '3', {'curve': 'd3.curveBasis'}],
+            ['1', '4', {'curve': 'd3.curveBasis'}],
+            ['5', '4', {'curve': 'd3.curveBasis'}],
+            ['6', '4', {'curve': 'd3.curveBasis'}],
+            ['3', '4', {'curve': 'd3.curveBasis'}]
+        ]
     ),
     html.Div(id='output')
 ])
@@ -72,4 +71,4 @@ def show_task_info(selectedId, selectedNodeProps):
         return s
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, dev_tools_serve_dev_bundles=False)

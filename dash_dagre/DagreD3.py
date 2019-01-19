@@ -9,7 +9,8 @@ class DagreD3(Component):
 
 Keyword arguments:
 - id (string; optional): The ID used to identify this component in Dash callbacks
-- data (dict; optional)
+- nodes (dict; optional)
+- edges (list; optional)
 - interactive (boolean; optional)
 - fit (boolean; optional)
 - height (string; optional)
@@ -20,13 +21,13 @@ Keyword arguments:
 
 Available events: """
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, data=Component.UNDEFINED, interactive=Component.UNDEFINED, fit=Component.UNDEFINED, height=Component.UNDEFINED, width=Component.UNDEFINED, shapeRenderers=Component.UNDEFINED, onNodeClick=Component.UNDEFINED, selectedId=Component.UNDEFINED, selectedNodeProps=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'data', 'interactive', 'fit', 'height', 'width', 'shapeRenderers', 'selectedId', 'selectedNodeProps']
+    def __init__(self, id=Component.UNDEFINED, nodes=Component.UNDEFINED, edges=Component.UNDEFINED, interactive=Component.UNDEFINED, fit=Component.UNDEFINED, height=Component.UNDEFINED, width=Component.UNDEFINED, shapeRenderers=Component.UNDEFINED, onNodeClick=Component.UNDEFINED, selectedId=Component.UNDEFINED, selectedNodeProps=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'nodes', 'edges', 'interactive', 'fit', 'height', 'width', 'shapeRenderers', 'selectedId', 'selectedNodeProps']
         self._type = 'DagreD3'
         self._namespace = 'dash_dagre'
         self._valid_wildcard_attributes =            []
         self.available_events = []
-        self.available_properties = ['id', 'data', 'interactive', 'fit', 'height', 'width', 'shapeRenderers', 'selectedId', 'selectedNodeProps']
+        self.available_properties = ['id', 'nodes', 'edges', 'interactive', 'fit', 'height', 'width', 'shapeRenderers', 'selectedId', 'selectedNodeProps']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')
