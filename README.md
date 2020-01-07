@@ -1,11 +1,18 @@
 # dash_dagre
 
+[![PyPI version](https://badge.fury.io/py/dash-dagre.svg)](https://badge.fury.io/py/dash-dagre)
+[![npm version](https://badge.fury.io/js/dash_dagre.svg)](https://badge.fury.io/js/dash_dagre)
+
 dash_dagre is a Dash component library.
 
 Get started with:
 1. Install Dash and its dependencies: https://dash.plot.ly/installation
 2. Run `python usage.py`
 3. Visit http://localhost:8050 in your web browser
+
+## install with pip
+
+    pip install dash-dagre
 
 ## Contributing
 
